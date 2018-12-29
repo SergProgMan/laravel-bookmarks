@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
     }
 
-    /**
+    /** 
      * Register any application services.
      *
      * @return void
