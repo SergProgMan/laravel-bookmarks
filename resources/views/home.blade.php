@@ -8,11 +8,6 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <!-- @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif -->
 
                     @include('inc.messages')
 
@@ -21,6 +16,24 @@
                             data-toggle="modal" 
                             data-target="#addModal" 
                             name="button">Add Bookmark</button>
+                    <hr>
+                    <h3>My Bookmarks</h3>
+                    <ul class="list-group">
+                    @if(isset($bookmarks))
+                      @foreach($bookmarks as $bookmark)
+                      <li class="list-group-item clearfix">
+                        <a href="{{ $bookmark->url }}" target="_blank" style="position:absolute; top:30%">
+                          {{ $bookmark->name }}
+                          <span class="label label-default">{{ $bookmark->description }}</span>
+                        </a>
+                        <span class="pull-right button-group">
+                          <button data-id="{{ $bookmark->id }}" type="button" class="delete-bookmark btn btn-danger" name="button">
+                            <span class="glyphicon glyphicon-remove"></span>Delete</button>
+                        </span>
+                      </li>
+                      @endforeach
+                    @endif
+                    </ul>
                 </div>
             </div>
         </div>

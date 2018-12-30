@@ -19,3 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'BookmarksController@index')->name('home')->middleware('auth');
 Route::post('store', ['as' => 'bookmarks.store', 'uses' => 'BookmarksController@store']);
+Route::delete('/bookmarks/{id}', 'BookmarksController@destroy');
+
+//Route::get('/home', 'HomeController@index')->name('home');
